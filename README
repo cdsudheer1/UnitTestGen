@@ -1,0 +1,28 @@
+This program is Licensed under GPLv2, see the file LICENSE in this source tree for details.
+
+This software is released into the public domain.
+You are free to use it in any way you like, provided the 
+copyright and GPLv2 Licenses are maintained.
+
+This software is provided "as is" with no expressed
+or implied warranty.  I accept no liability for any
+damage or loss of business that this software may cause.
+
+This is a utility for generating CPPUNIT testcases for C++ files.
+The program needs a header file as input, it will parse the classes 
+in the header file and will generate CPPUNIT testcases for the functions in it.
+
+Sample usage:
+
+UnitTestGen.exe -f MyClass.h -o output_dir
+
+The above command will parse the header file "MyClass.h" 
+and would create the CPPUNIT testcases for the classes in 
+it under the folder "output_dir"
+
+
+Known Limitations:
+==================
+1. Template parsing is not implemented
+2. Inner class parsing is not handled.
+
