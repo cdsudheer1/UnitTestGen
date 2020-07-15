@@ -2,7 +2,7 @@
 #define CONSTANTS_H_INCLUDED
 
 #define APP_NAME "UnitTestGen"
-#define APP_VERSION "0.07"
+#define APP_VERSION "0.08"
 #define APP_COPYRIGHT "UnitTestGen developed by Sudheer Divakaran, Gadgeon Smart Systems Pvt. Ltd., Kochi, Kerala, INDIA."
 
 #define STR_CLASS  "class"

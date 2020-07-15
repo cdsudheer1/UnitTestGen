@@ -340,10 +340,10 @@ bool HeaderFileParser::Parse(AppContext& rCtx)
                                                             << rBlk.Type << " Closed" << endl;
                                             }
 
-                                            if ((BLOCK_FUNCTION != BlkType) && (BLOCK_NAMESPACE != BlkType)) {
+                                            if ((BLOCK_CLASS == BlkType) || (BLOCK_STRUCT == BlkType)) {
                                                 Namespace* pNameSpace = static_cast<Namespace*>(rCtx.GetActiveNameSpace());
                                                 if (nullptr != pNameSpace) {
-                                                    if (!rFile.ClassIndexes.empty()) {
+                                                    if (!pNameSpace->ClassIndexes.empty()) {
                                                         pNameSpace->ClassIndexes.pop_back();
                                                     }
                                                 } else if (!rFile.ClassIndexes.empty()) {
@@ -467,6 +467,9 @@ bool HeaderFileParser::Parse(AppContext& rCtx)
                             sTemp = rCtx.oMatch[4];
                             if (!sTemp.empty()) {
                                 if (String(1,CHR_BRACE_CLOSE) == sTemp) {
+                                    if (Settings::Debug) {
+                                        cout << "Enum Ended" << endl;
+                                    }
                                     rCtx.Blocks[rCtx.BlockIndex].BraceCount--;
                                     rCtx.Blocks.pop_back();
                                     rCtx.BlockIndex--;
